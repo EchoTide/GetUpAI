@@ -6,6 +6,7 @@ node_modules/
 dist/
 dist-electron/
 build/
+!clients/desktop/build/
 !clients/desktop/build/installer-preinit.nsh
 release-out*/
 release/
