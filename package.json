@@ -1,0 +1,21 @@
+{
+  "name": "getupai",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "[English](./README.md) | [简体中文](./README.zh-CN.md)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SlyPaws/GetUpAI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SlyPaws/GetUpAI/issues"
+  },
+  "homepage": "https://github.com/SlyPaws/GetUpAI#readme"
+}

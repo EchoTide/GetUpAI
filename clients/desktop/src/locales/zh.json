@@ -1,0 +1,321 @@
+{
+  "status": {
+    "resting": "午休中",
+    "dnd": "勿扰中",
+    "paused": "暂停中",
+    "standing": "罚站中",
+    "standing_work": "站立办公",
+    "monitoring": "监控中"
+  },
+  "common": {
+    "times": "{{count}} 次",
+    "minutes": "{{count}} 分钟",
+    "image": "图片",
+    "just_now": "刚刚",
+    "min_ago": "{{count}}分钟前",
+    "hour_ago": "{{count}}小时前",
+    "day_ago": "{{count}}天前",
+    "days": "{{count}} 天",
+    "hours": "{{count}} 小时",
+    "seconds": "{{count}}秒",
+    "h_short": "{{count}}h",
+    "m_short": "{{count}}m",
+    "s_short": "{{count}}s"
+  },
+  "header": {
+    "end_rest": "结束休息",
+    "dnd_on": "开启勿扰模式",
+    "dnd_off": "关闭勿扰模式",
+    "settings": "设置",
+    "daily_insight": "今日点评",
+    "stats": "数据统计",
+    "share": "分享日签",
+    "force_popup": "强制弹窗",
+    "minimize": "最小化",
+    "close": "关闭"
+  },
+  "countdown": {
+    "next_punishment": "下次处刑倒计时",
+    "next_punishment_short": "下次处刑",
+    "rest": "午休倒计时",
+    "rest_short": "午休",
+    "dnd": "勿扰模式",
+    "dnd_short": "勿扰",
+    "pause": "暂停倒计时",
+    "pause_short": "暂停",
+    "standing_work": "站立办公",
+    "punishment": "罚站倒计时",
+    "punishment_short": "罚站"
+  },
+  "stats": {
+    "today_stand_count": "今日起立次数",
+    "spine_health": "脊椎健康度",
+    "safe": "安全",
+    "warning": "警告",
+    "danger": "濒危",
+    "last_stand": "距上次起立",
+    "today_sit": "今日累计久坐",
+    "longest_sit": "最长连续久坐",
+    "excuse_count": "借口次数",
+    "stand_work_count": "站立办公次数",
+    "stand_work_current": "本次",
+    "more_data": "更多数据",
+    "no_record": "还没有起立记录",
+    "ignore_count": "忽略次数",
+    "total_pause": "暂停总时长",
+    "excuse_list": "借口列表：",
+    "weekly_summary": "近7天摘要（含今日）：",
+    "weekly_overview": "近7天概览",
+    "monthly_overview": "近30天概览",
+    "tab_weekly": "周报",
+    "tab_monthly": "月报",
+    "tab_heatmap": "热力图",
+    "health_degree": "健康度",
+    "stand_count": "站立次数",
+    "stand_duration": "站立时长",
+    "sit_duration": "久坐时长",
+    "streak_days": "连续打卡"
+  },
+  "actions": {
+    "stand_active": "🧍 主动站立",
+    "stand_active_with_min": "🧍 主动站立（{{minutes}}min）",
+    "appeal": "🧾 申诉",
+    "pause": "☕ 暂停",
+    "stand_continue": "继续站着",
+    "stand_work_switch": "转为站立办公",
+    "sit_back": "我坐回去（不建议）",
+    "submit_excuse": "交理由",
+    "back": "返回",
+    "admit_mistake": "我错了，这就站（{{minutes}}min）",
+    "continue": "继续",
+    "give_reason": "🙅 给个理由（求暂停）",
+    "remind_later": "稍后提醒",
+    "execute_pause": "执行暂停"
+  },
+  "popup": {
+    "title": "久坐超时",
+    "completed_title": "站立完成",
+    "completed_subtitle": "干得漂亮，继续保持",
+    "today_total_stands": "今日累计站立",
+    "ai_summary_title": "近 7 天摘要（含今日）：",
+    "ai_recent_excuses_title": "最近借口：",
+    "keep_standing": "保持站立，直到倒计时结束",
+    "exercise_generating": "AI 正在生成运动引导...",
+    "exercise_step": "动作 {{current}}/{{total}}",
+    "exercise_summary": "共 {{count}} 个动作，约 {{minutes}} 分钟",
+    "next_exercise": "下一个：{{name}}",
+    "excuse_prompt": "给个理由，看我愿不愿意放过你",
+    "excuse_placeholder": "比如：开会两小时没法站；客户电话；专注冲刺…",
+    "judging": "裁决中…",
+    "ai_suggest_pause": "AI 建议暂停",
+    "minutes": "分钟",
+    "ai_no_suggestion": "AI 没给出可执行的暂停分钟数",
+    "custom_pause_duration": "自定义暂停时长（分钟）",
+    "pause_x_minutes": "{{count}} 分钟",
+    "intervention_title": "GETUP.AI / 强制干预",
+    "completed_intervention_title": "GETUP.AI / 完成打卡",
+    "exercises_completed": "已完成 {{count}} 个动作"
+  },
+  "notification": {
+    "title": "GetUpAI 提醒",
+    "body_10m": "还有 10 分钟就要站起来了",
+    "toast_title": "温馨提醒",
+    "toast_body_5m": "还有 5 分钟，活动一下吧",
+    "get_ready": "准备起立"
+  },
+  "health_tooltip": {
+    "title": "脊椎健康度（估算）",
+    "formula": "公式：100 - 久坐(小时)*10 + 站立(分钟)*0.5，范围 0~100",
+    "current": "当前：久坐 {{sit}}h，站立 {{stand}}min",
+    "note": "说明：仅用于自我提醒，不构成医学诊断/建议；如有不适请就医。",
+    "hint": "提示：到 100 会封顶；显示为整数时，站 1 分钟≈+0.5 分，可能要 2 分钟才跳 1 格。"
+  },
+  "ai": {
+    "not_enabled": "AI 未启用。去设置里打开。",
+    "popup_fallback_1": "你已经坐了 {{minutes}} 分钟。差不多得了。",
+    "popup_fallback_2": "又坐？{{minutes}} 分钟了。你是来办公室“焊”在椅子上的吗？",
+    "popup_fallback_3": "最后警告。{{minutes}} 分钟。你要么站起来，要么等脊椎报警。",
+    "daily_stats": "今日数据：",
+    "tomorrow_suggestion": "明日建议：",
+    "mission": "让用户少久坐、按时起立"
+  },
+  "excuse_reply": {
+    "template_1": "听清楚：你可以忙，但你不能把腰椎当耗材。你的理由是“{{excuse}}”，不成立。站起来。",
+    "template_2": "“{{excuse}}”？好理由。那就更应该站起来：你要靠脊椎吃饭，不是靠椅子。",
+    "template_3": "你这个理由我给你存档了。等你喊疼的时候再翻出来念。现在，站起来。",
+    "extra_1": "我已经很克制了。",
+    "extra_2": "别再拖。",
+    "extra_3": "最后一次机会。"
+  },
+  "modal": {
+    "punishment_title": "罚站中",
+    "punishment_content": "请保持站立直到倒计时结束。",
+    "sit_back": "我坐回去了",
+    "pause_title": "暂停多久？",
+    "pause_note": "暂停会冻结计时，但会记录在黑料里。",
+    "insight_title": "今日教练点评",
+    "insight_history": "历史（最近 {{count}} 天）",
+    "insight_empty": "还没有生成。点“重新生成”。",
+    "generate": "重新生成",
+    "generating": "生成中…",
+    "generate_exit": "生成并退出"
+  },
+  "settings": {
+    "title": "设置",
+    "tab_general": "通用",
+    "tab_ai": "AI",
+    "language": "显示语言（Display Language）",
+    "dnd_periods": "免打扰时段",
+    "delete": "删除",
+    "add_period": "+ 新增区间",
+    "dnd_note": "在休息时段内不会弹“久坐处刑”，并自动暂停计时，结束后自动恢复监督。",
+    "away_detection": "离座检测",
+    "auto_pause_lock": "锁屏时自动暂停",
+    "auto_pause_idle": "空闲时自动暂停",
+    "auto_start": "开机自启动",
+    "auto_start_description": "登录电脑时自动启动 GetUpAI",
+    "idle_threshold": "触发阈值: {{count}} 分钟",
+    "idle_note": "无键鼠操作超过此时长自动暂停，回来后自动恢复。",
+    "force_stand_duration": "强制站立时长",
+    "force_stand_note": "影响“罚站/主动站立”的倒计时长度。",
+    "reminder_strategy": "提醒策略",
+    "strategy_fixed": "固定间隔",
+    "strategy_adaptive": "智能适应",
+    "pre_reminder": "提前提醒 (10m/5m)",
+    "adaptive_note": "智能适应会根据你的忽略率和借口率自动调整提醒间隔。",
+    "quick_rest": "立即休息 {{count}}m",
+    "enable_ai": "启用 AI",
+    "strictness": {
+      "gentle": "温和",
+      "strict": "严厉",
+      "military": "军训"
+    },
+    "exercise_guide": "站立运动引导",
+    "base_url": "Base URL",
+    "model": "模型",
+    "timeout": "超时 (ms)",
+    "api_key": "API Key",
+    "saved": "已保存",
+    "unsaved": "未保存",
+    "key_placeholder_saved": "留空表示不修改",
+    "key_placeholder_empty": "请输入 Bearer Key",
+    "key_note": "Key 会使用系统加密保存到本机，不会写进前端本地存储，也不会显示明文。",
+    "save": "保存",
+    "clear_key": "清除 Key",
+    "test_conn": "测试连接",
+    "testing": "测试中…",
+    "save_success": "已保存",
+    "save_fail": "保存失败",
+    "clear_success": "已清除 Key",
+    "clear_fail": "清除失败",
+    "bridge_error": "桌面端桥接未加载：请重启应用",
+    "url_error": "Base URL 格式不对：请填完整 URL（包含 http:// 与 /v1/chat/completions）",
+    "test_success_empty": "测试成功，但返回为空",
+    "test_fail": "测试失败：请检查 Base URL / 模型 / Key",
+    "test_fail_reason": "测试失败：{{reason}}",
+    "ai_load_fail": "读取 AI 配置失败",
+    "ai_usage_title": "今日 AI 调用",
+    "ai_usage_count": "{{count}} / {{limit}}",
+    "ai_usage_reset": "{{time}} 重置",
+    "ai_usage_exceeded": "已达每日上限"
+  },
+  "adaptive_notification_message": "提醒间隔已从 {{old}} 分钟调整为 {{new}} 分钟。原因：{{reason}}",
+  "adaptive_reason": {
+    "adaptive_ignore_rate": "忽略率过高",
+    "adaptive_stand_rate": "站立率良好",
+    "adaptive_consecutive_ignores": "连续忽略提醒",
+    "adaptive_change": "自适应调整"
+  },
+  "share": {
+    "title": "今日战绩卡",
+    "health_score": "今日健康分",
+    "copied": "已复制到剪贴板",
+    "copy_fail": "复制失败",
+    "saved": "保存成功",
+    "save_fail": "保存失败",
+    "copy_image": "复制图片",
+    "save_image": "保存图片",
+    "ai_insight": "AI 点评",
+    "unit_times": "次",
+    "unit_min": "分钟",
+    "unit_hour": "小时",
+    "unit_day": "天",
+    "stay_active": "拒绝久坐，拥抱健康",
+    "stat_stand_count": "站立次数",
+    "stat_stand_duration": "站立时长",
+    "stat_sit_duration": "久坐时长",
+    "stat_streak": "连续打卡"
+  },
+  "tray": {
+    "open": "打开",
+    "quit": "退出"
+  },
+  "achievements": {
+    "title": "成就墙",
+    "unlocked_not": "未解锁",
+    "unlocked_at": "已达成 {{date}}",
+    "streak_suffix": "天连胜",
+    "unlocked_count": "已解锁 {{unlocked}}/{{total}}",
+    "new_unlocked": "新解锁",
+    "at_at": "已达成",
+    "items": {
+      "first_stand": {
+        "name": "第一次起立",
+        "desc": "完成第一次起立打卡"
+      },
+      "streak_3": {
+        "name": "连续 3 天",
+        "desc": "连续 3 天完成起立打卡"
+      },
+      "streak_7": {
+        "name": "连续 7 天",
+        "desc": "连续 7 天完成起立打卡"
+      },
+      "streak_30": {
+        "name": "连续 30 天",
+        "desc": "连续 30 天完成起立打卡"
+      },
+      "streak_100": {
+        "name": "连续 100 天",
+        "desc": "连续 100 天完成起立打卡"
+      },
+      "daily_10": {
+        "name": "单日起立 10 次",
+        "desc": "单日累计起立达到 10 次"
+      },
+      "daily_20": {
+        "name": "单日起立 20 次",
+        "desc": "单日累计起立达到 20 次"
+      },
+      "stand_hour": {
+        "name": "累计站立 1 小时",
+        "desc": "单日累计站立时长超过 60 分钟"
+      },
+      "stand_work_hour": {
+        "name": "站立办公 1 小时",
+        "desc": "单日累计站立办公时长超过 60 分钟"
+      },
+      "no_excuse": {
+        "name": "没有借口",
+        "desc": "达成每日目标且没有使用过借口"
+      },
+      "early_bird": {
+        "name": "早起鸟",
+        "desc": "在早上 8:00 之前完成起立"
+      },
+      "night_owl": {
+        "name": "夜猫子",
+        "desc": "在晚上 10:00 之后完成起立"
+      },
+      "health_guard": {
+        "name": "健康卫士",
+        "desc": "连续 7 天脊椎健康评分保持在 80 分以上"
+      }
+    }
+  },
+  "offline_banner": {
+    "message": "您已离线。AI 功能不可用。数据已保存在本地。",
+    "dismiss": "关闭"
+  }
+}
+

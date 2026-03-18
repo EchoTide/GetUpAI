@@ -1,0 +1,312 @@
+{
+  "status": {
+    "resting": "Resting",
+    "dnd": "DND",
+    "paused": "Paused",
+    "standing": "Standing",
+    "standing_work": "Standing Work",
+    "monitoring": "Monitoring"
+  },
+  "common": {
+    "times": "{{count}}",
+    "minutes": "{{count}} min",
+    "image": "Image",
+    "just_now": "just now",
+    "min_ago": "{{count}}m ago",
+    "hour_ago": "{{count}}h ago",
+    "day_ago": "{{count}}d ago",
+    "days": "{{count}} days",
+    "hours": "{{count}} hours",
+    "seconds": "{{count}}s",
+    "h_short": "{{count}}h",
+    "m_short": "{{count}}m",
+    "s_short": "{{count}}s"
+  },
+  "header": {
+    "end_rest": "End Rest",
+    "dnd_on": "Enable DND",
+    "dnd_off": "Disable DND",
+    "settings": "Settings",
+    "daily_insight": "Daily Insight",
+    "stats": "Statistics",
+    "share": "Share",
+    "force_popup": "Force Popup",
+    "minimize": "Minimize",
+    "close": "Close"
+  },
+  "countdown": {
+    "next_punishment": "Next Punishment in",
+    "next_punishment_short": "Next Punishment",
+    "rest": "Rest Ends in",
+    "rest_short": "Resting",
+    "dnd": "DND Mode",
+    "dnd_short": "DND",
+    "pause": "Pause Ends in",
+    "pause_short": "Paused",
+    "standing_work": "Standing Work",
+    "punishment": "Stand Time Left",
+    "punishment_short": "Standing"
+  },
+  "stats": {
+    "today_stand_count": "Stands Today",
+    "spine_health": "Spine Health",
+    "safe": "Safe",
+    "warning": "Warning",
+    "danger": "Danger",
+    "last_stand": "Last Stand",
+    "today_sit": "Total Sit Time",
+    "longest_sit": "Longest Sit",
+    "excuse_count": "Excuses",
+    "stand_work_count": "Stand Work Count",
+    "stand_work_current": "Current",
+    "more_data": "More Data",
+    "no_record": "No record yet",
+    "ignore_count": "Ignored",
+    "total_pause": "Total Pause Time",
+    "excuse_list": "Excuses:",
+    "weekly_summary": "Weekly Summary (including today):",
+    "weekly_overview": "Last 7 Days Overview",
+    "monthly_overview": "Last 30 Days Overview",
+    "tab_weekly": "Weekly",
+    "tab_monthly": "Monthly",
+    "tab_heatmap": "Heatmap",
+    "health_degree": "Health Score",
+    "stand_count": "Stand Count",
+    "stand_duration": "Stand Duration",
+    "sit_duration": "Sit Duration",
+    "streak_days": "Streak Days"
+  },
+  "actions": {
+    "stand_active": "🧍 Stand Up",
+    "stand_active_with_min": "🧍 Stand Up ({{minutes}}min)",
+    "appeal": "🧾 Appeal",
+    "pause": "☕ Pause",
+    "stand_continue": "Keep Standing",
+    "stand_work_switch": "Switch to Stand Work",
+    "sit_back": "Sit Down (Not Recommended)",
+    "submit_excuse": "Submit Excuse",
+    "back": "Back",
+    "admit_mistake": "I'm wrong, standing now ({{minutes}}min)",
+    "continue": "Continue",
+    "give_reason": "🙅 Give a reason (Request Pause)",
+    "remind_later": "Remind Later",
+    "execute_pause": "Pause Now"
+  },
+  "popup": {
+    "title": "Sitting Timeout",
+    "completed_title": "Standing Complete",
+    "completed_subtitle": "Nice work, keep it up",
+    "today_total_stands": "Today's Total Stands",
+    "ai_summary_title": "7-day summary (including today):",
+    "ai_recent_excuses_title": "Recent excuses:",
+    "keep_standing": "Keep standing until timer ends",
+    "exercise_generating": "AI is generating exercises...",
+    "exercise_step": "Step {{current}}/{{total}}",
+    "exercise_summary": "{{count}} exercises, about {{minutes}} min",
+    "next_exercise": "Next: {{name}}",
+    "excuse_prompt": "Give me a reason, let's see if I let you go.",
+    "excuse_placeholder": "e.g., Meeting for 2 hours; Client call; Focus sprint...",
+    "judging": "Judging...",
+    "ai_suggest_pause": "AI Suggests Pause",
+    "minutes": "min",
+    "ai_no_suggestion": "AI gave no actionable pause duration",
+    "intervention_title": "GETUP.AI / INTERVENTION",
+    "completed_intervention_title": "GETUP.AI / SESSION COMPLETE",
+    "exercises_completed": "Completed {{count}} exercises"
+  },
+  "notification": {
+    "title": "GetUpAI Reminder",
+    "body_10m": "10 minutes left to stand up.",
+    "toast_title": "Gentle Reminder",
+    "toast_body_5m": "5 minutes left, move a bit.",
+    "get_ready": "Get Ready"
+  },
+  "health_tooltip": {
+    "title": "Spine Health (Estimated)",
+    "formula": "Formula: 100 - Sit(h)*10 + Stand(min)*0.5, Range 0~100",
+    "current": "Current: Sit {{sit}}h, Stand {{stand}}min",
+    "note": "Note: For self-reminding only, not medical advice.",
+    "hint": "Hint: Caps at 100; 1 min stand ≈ +0.5 score."
+  },
+  "ai": {
+    "not_enabled": "AI not enabled. Enable in Settings.",
+    "popup_fallback_1": "You've been sitting for {{minutes}} minutes. That's enough.",
+    "popup_fallback_2": "Sitting again? {{minutes}} minutes. Are you welded to the chair?",
+    "popup_fallback_3": "Final warning. {{minutes}} minutes. Stand up or your spine will alarm.",
+    "daily_stats": "Daily Stats:",
+    "tomorrow_suggestion": "Tomorrow's Suggestion:",
+    "mission": "Encourage users to sit less and stand up on time"
+  },
+  "excuse_reply": {
+    "template_1": "Listen: You can be busy, but don't treat your spine as consumable. Your excuse \"{{excuse}}\" is invalid. Stand up.",
+    "template_2": "\"{{excuse}}\"? Good reason. That's why you should stand: You earn a living with your spine, not the chair.",
+    "template_3": "I've archived your excuse. I'll read it back when you cry in pain. Now, stand up.",
+    "extra_1": "I'm being restrained.",
+    "extra_2": "Stop stalling.",
+    "extra_3": "Last chance."
+  },
+  "modal": {
+    "punishment_title": "Punishment in Progress",
+    "punishment_content": "Please keep standing until the countdown ends.",
+    "sit_back": "I sat back",
+    "pause_title": "Pause for how long?",
+    "pause_note": "Pausing freezes the timer but will be recorded in your history.",
+    "insight_title": "Daily Coach Insight",
+    "insight_history": "History (Last {{count}} days)",
+    "insight_empty": "Not generated yet. Click 'Regenerate'.",
+    "generate": "Regenerate",
+    "generating": "Generating…",
+    "generate_exit": "Generate & Exit"
+  },
+  "settings": {
+    "title": "Settings",
+    "tab_general": "General",
+    "tab_ai": "AI",
+    "language": "Display Language",
+    "dnd_periods": "Do Not Disturb Periods",
+    "delete": "Delete",
+    "add_period": "+ Add Period",
+    "dnd_note": "No 'Sitting Punishment' popups during rest periods. Timer pauses automatically and resumes afterwards.",
+    "away_detection": "Away Detection",
+    "auto_pause_lock": "Auto-pause on Lock Screen",
+    "auto_pause_idle": "Auto-pause on Idle",
+    "auto_start": "Launch at Startup",
+    "auto_start_description": "Automatically start GetUpAI when you log in",
+    "idle_threshold": "Trigger Threshold: {{count}} min",
+    "idle_note": "Auto-pauses after no mouse/keyboard activity for this duration. Resumes upon return.",
+    "force_stand_duration": "Forced Stand Duration",
+    "force_stand_note": "Affects countdown length for 'Punishment/Active Stand'.",
+    "reminder_strategy": "Reminder Strategy",
+    "strategy_fixed": "Fixed Interval",
+    "strategy_adaptive": "Adaptive",
+    "pre_reminder": "Pre-reminder (10m/5m)",
+    "adaptive_note": "Adaptive strategy adjusts interval based on your ignore/excuse rate.",
+    "quick_rest": "Rest Now {{count}}m",
+    "enable_ai": "Enable AI",
+    "strictness": {
+      "gentle": "Gentle",
+      "strict": "Strict",
+      "military": "Military"
+    },
+    "exercise_guide": "Standing Exercise Guide",
+    "base_url": "Base URL",
+    "model": "Model",
+    "timeout": "Timeout (ms)",
+    "api_key": "API Key",
+    "saved": "Saved",
+    "unsaved": "Unsaved",
+    "key_placeholder_saved": "Leave empty to keep unchanged",
+    "key_placeholder_empty": "Enter Bearer Key",
+    "key_note": "Key is encrypted and saved locally. It is not stored in frontend local storage or shown in plain text.",
+    "save": "Save",
+    "clear_key": "Clear Key",
+    "test_conn": "Test Connection",
+    "testing": "Testing…",
+    "save_success": "Saved",
+    "save_fail": "Save Failed",
+    "clear_success": "Key Cleared",
+    "clear_fail": "Clear Failed",
+    "bridge_error": "Desktop bridge not loaded: Please restart app",
+    "url_error": "Invalid Base URL: Please enter full URL (including http:// and /v1/chat/completions)",
+    "test_success_empty": "Test successful, but response is empty",
+    "test_fail": "Test failed: Check Base URL / Model / Key",
+    "test_fail_reason": "Test failed: {{reason}}",
+    "ai_load_fail": "Failed to load AI configuration",
+    "ai_usage_title": "AI Calls Today",
+    "ai_usage_count": "{{count}} / {{limit}}",
+    "ai_usage_reset": "Resets at {{time}}",
+    "ai_usage_exceeded": "Daily limit reached"
+  },
+  "share": {
+    "title": "Daily Achievement Card",
+    "health_score": "Health Score",
+    "copied": "Copied to clipboard",
+    "copy_fail": "Failed to copy",
+    "saved": "Saved successfully",
+    "save_fail": "Failed to save",
+    "copy_image": "Copy Image",
+    "save_image": "Save Image",
+    "ai_insight": "AI Insight",
+    "unit_times": "times",
+    "unit_min": "min",
+    "unit_hour": "hours",
+    "unit_day": "days",
+    "stay_active": "STAY ACTIVE, STAY HEALTHY",
+    "stat_stand_count": "Stand Count",
+    "stat_stand_duration": "Stand Duration",
+    "stat_sit_duration": "Sit Duration",
+    "stat_streak": "Streak Days"
+  },
+  "tray": {
+    "open": "Open",
+    "quit": "Quit"
+  },
+  "achievements": {
+    "title": "Achievements Wall",
+    "unlocked_not": "Locked",
+    "unlocked_at": "Unlocked on {{date}}",
+    "streak_suffix": "day streak",
+    "unlocked_count": "Unlocked {{unlocked}}/{{total}}",
+    "new_unlocked": "New Achievement!",
+    "at_at": "Reached",
+    "items": {
+      "first_stand": {
+        "name": "First Stand",
+        "desc": "Complete your first stand-up"
+      },
+      "streak_3": {
+        "name": "3 Day Streak",
+        "desc": "Complete stand-ups for 3 consecutive days"
+      },
+      "streak_7": {
+        "name": "7 Day Streak",
+        "desc": "Complete stand-ups for 7 consecutive days"
+      },
+      "streak_30": {
+        "name": "30 Day Streak",
+        "desc": "Complete stand-ups for 30 consecutive days"
+      },
+      "streak_100": {
+        "name": "100 Day Streak",
+        "desc": "Complete stand-ups for 100 consecutive days"
+      },
+      "daily_10": {
+        "name": "Stand 10 Times",
+        "desc": "Stand up 10 times in a single day"
+      },
+      "daily_20": {
+        "name": "Stand 20 Times",
+        "desc": "Stand up 20 times in a single day"
+      },
+      "stand_hour": {
+        "name": "Stand 1 Hour",
+        "desc": "Total stand time exceeds 60 minutes in a single day"
+      },
+      "stand_work_hour": {
+        "name": "Stand Work 1 Hour",
+        "desc": "Stand work time exceeds 60 minutes in a single day"
+      },
+      "no_excuse": {
+        "name": "No Excuses",
+        "desc": "Reach daily goal with zero excuses used"
+      },
+      "early_bird": {
+        "name": "Early Bird",
+        "desc": "Complete a stand-up before 8:00 AM"
+      },
+      "night_owl": {
+        "name": "Night Owl",
+        "desc": "Complete a stand-up after 10:00 PM"
+      },
+      "health_guard": {
+        "name": "Health Guard",
+        "desc": "Spine health maintained at 80+ for the last 7 days"
+      }
+    }
+  },
+  "offline_banner": {
+    "message": "You're offline. AI features are unavailable. Data is saved locally.",
+    "dismiss": "Dismiss"
+  }
+}
+

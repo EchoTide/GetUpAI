@@ -1,0 +1,121 @@
+{
+  "name": "getup-ai-desktop",
+  "private": true,
+  "version": "0.1.1",
+  "main": "dist-electron/main.js",
+  "build": {
+    "appId": "ai.getup.desktop",
+    "productName": "GetUpAI",
+    "asar": true,
+    "directories": {
+      "buildResources": "build",
+      "output": "release-out"
+    },
+    "files": [
+      "dist/**",
+      "dist-electron/**",
+      "build/icon.ico",
+      "LICENSE.txt"
+    ],
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "${productName} Setup ${version}.${ext}",
+      "perMachine": false,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "runAfterFinish": false,
+      "shortcutName": "GetUpAI",
+      "include": "build/installer-preinit.nsh",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Utility"
+    },
+    "electronDownload": {
+      "mirror": "https://cdn.npmmirror.com/binaries/electron/"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:renderer": "vite build",
+    "build:electron": "tsc -p tsconfig.electron.json",
+    "prepack": "node scripts/generateIcons.js",
+    "dist": "npm run build:renderer && npm run build:electron && npm run prepack && node -e \"try{if(process.platform==='win32'){require('child_process').execSync('taskkill /f /im GetUpAI.exe /t',{stdio:'ignore'});}}catch(e){}\" && cross-env ELECTRON_BUILDER_BINARIES_MIRROR=https://cdn.npmmirror.com/binaries/electron-builder-binaries/ ELECTRON_MIRROR=https://cdn.npmmirror.com/binaries/electron/ electron-builder",
+    "dist:win": "npm run dist -- --win",
+    "dist:mac": "npm run dist -- --mac",
+    "dist:linux": "npm run dist -- --linux",
+    "preview": "vite preview",
+    "electron:dev": "concurrently -k \"cross-env BROWSER=none npm run dev\" \"wait-on http-get://localhost:5173/ && cross-env NODE_ENV=development electron .\"",
+    "electron:start": "npm run build:renderer && npm run build:electron && cross-env NODE_ENV=production electron .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@getup-ai/shared-logic": "file:../../shared-logic",
+    "html2canvas": "^1.4.1",
+    "i18next": "^25.8.5",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^16.5.4",
+    "react-router-dom": "^6.30.3",
+    "recharts": "^3.7.0",
+    "zustand": "^4.5.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/electron": "^1.6.10",
+    "@types/node": "^22.13.1",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^30.0.1",
+    "electron-builder": "^24.13.3",
+    "jsdom": "^28.0.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1",
+    "vitest": "^4.0.18",
+    "wait-on": "^7.2.0"
+  }
+}
