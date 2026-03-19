@@ -16,4 +16,11 @@ describe('i18n auto-start keys', () => {
     // @ts-ignore
     expect(zh.settings.auto_start_description).toBe('登录电脑时自动启动 GetUpAI');
   });
+
+  it('includes popup start action labels used by PopupPage', () => {
+    // @ts-ignore
+    expect(en.actions.start_now).toBe('Start Now');
+    // @ts-ignore
+    expect(zh.actions.start_now).toBe('立即开始');
+  });
 });
