@@ -10,10 +10,11 @@ contextBridge.exposeInMainWorld('electronAPI', {
   saveImage: (buffer: ArrayBuffer, filename: string) => ipcRenderer.invoke('save-image', { buffer, filename }),
   copyImageToClipboard: (buffer: ArrayBuffer) => ipcRenderer.invoke('copy-image', { buffer }),
   send: (
-    channel: 'checkin:stood' | 'checkin:excuse' | 'checkin:pause' | 'checkin:stand_work_start' | 'checkin:ignore',
+    channel: 'checkin:stand_start' | 'checkin:stood' | 'checkin:excuse' | 'checkin:pause' | 'checkin:stand_work_start' | 'checkin:ignore',
     payload: unknown,
   ) => {
     if (
+      channel === 'checkin:stand_start' ||
       channel === 'checkin:stood' ||
       channel === 'checkin:excuse' ||
       channel === 'checkin:pause' ||
@@ -24,10 +25,11 @@ contextBridge.exposeInMainWorld('electronAPI', {
     }
   },
   on: (
-    channel: 'checkin:stood' | 'checkin:excuse' | 'checkin:pause' | 'checkin:stand_work_start' | 'checkin:ignore',
+    channel: 'checkin:stand_start' | 'checkin:stood' | 'checkin:excuse' | 'checkin:pause' | 'checkin:stand_work_start' | 'checkin:ignore',
     callback: (payload: unknown) => void,
   ) => {
     if (
+      channel === 'checkin:stand_start' ||
       channel === 'checkin:stood' ||
       channel === 'checkin:excuse' ||
       channel === 'checkin:pause' ||

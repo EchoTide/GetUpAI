@@ -15,11 +15,11 @@ interface ElectronAPI {
   onSystemLock?: (callback: () => void) => () => void;
   onSystemUnlock?: (callback: () => void) => () => void;
   send?: (
-    channel: 'checkin:stood' | 'checkin:excuse' | 'checkin:pause' | 'checkin:stand_work_start' | 'checkin:ignore',
+    channel: 'checkin:stand_start' | 'checkin:stood' | 'checkin:excuse' | 'checkin:pause' | 'checkin:stand_work_start' | 'checkin:ignore',
     payload: unknown,
   ) => void;
   on?: (
-    channel: 'checkin:stood' | 'checkin:excuse' | 'checkin:pause' | 'checkin:stand_work_start' | 'checkin:ignore',
+    channel: 'checkin:stand_start' | 'checkin:stood' | 'checkin:excuse' | 'checkin:pause' | 'checkin:stand_work_start' | 'checkin:ignore',
     callback: (payload: unknown) => void,
   ) => () => void;
   getAutoLaunch?: () => Promise<boolean>;

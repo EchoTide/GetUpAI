@@ -447,6 +447,10 @@ app.whenReady().then(() => {
     }
   });
 
+  ipcMain.on('checkin:stand_start', (_event, payload) => {
+    if (mainWindow) mainWindow.webContents.send('checkin:stand_start', payload);
+  });
+
   ipcMain.on('checkin:excuse', (_event, payload) => {
     if (mainWindow) mainWindow.webContents.send('checkin:excuse', payload);
   });

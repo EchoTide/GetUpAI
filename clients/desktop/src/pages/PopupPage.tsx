@@ -117,10 +117,13 @@ export default function PopupPage() {
       : 'radial-gradient(circle at 50% 16%, rgba(255,120,92,0.14), rgba(0,0,0,0) 42%)';
 
   const startStandSession = () => {
-    if (!window.electronAPI?.send) {
-      startStanding(Date.now());
+    const startedAt = Date.now();
+    if (window.electronAPI?.send) {
+      window.electronAPI.send('checkin:stand_start', { at: startedAt });
+    } else {
+      startStanding(startedAt);
     }
-    setStandEndsAt(Date.now() + settings.standSeconds * 1000);
+    setStandEndsAt(startedAt + settings.standSeconds * 1000);
   };
 
   const rageLevel = Math.min(3, 1 + Math.floor((day.excuseCount + day.ignoreCount) / 2));
@@ -723,16 +726,6 @@ export default function PopupPage() {
               </div>
             )}
             <div style={{ marginTop: 18, display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Button
-                data-testid="btn-stand-continue"
-                tone="primary"
-                onClick={() => {
-                  setStandEndsAt(null);
-                  if (window.electronAPI?.closePopup) window.electronAPI.closePopup();
-                }}
-              >
-                {t('actions.stand_continue')}
-              </Button>
               <Button
                 data-testid="btn-switch-work"
                 tone="primary"

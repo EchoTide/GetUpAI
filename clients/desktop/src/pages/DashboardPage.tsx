@@ -358,6 +358,14 @@ export default function DashboardPage() {
   useEffect(() => {
     if (!window.electronAPI?.on) return;
 
+    const offStandStart = window.electronAPI.on('checkin:stand_start', (payload) => {
+      try {
+        const p = payload as { at?: unknown };
+        const at = typeof p?.at === 'number' ? p.at : Date.now();
+        startStanding(at);
+      } catch {}
+    });
+
     const offStood = window.electronAPI.on('checkin:stood', (payload) => {
       try {
         const p = payload as { at?: unknown; standDurationMs?: unknown };
@@ -420,6 +428,7 @@ export default function DashboardPage() {
     });
 
     return () => {
+      if (typeof offStandStart === 'function') offStandStart();
       if (typeof offStood === 'function') offStood();
       if (typeof offExcuse === 'function') offExcuse();
       if (typeof offPause === 'function') offPause();
@@ -428,7 +437,7 @@ export default function DashboardPage() {
       if (typeof offLock === 'function') offLock();
       if (typeof offUnlock === 'function') offUnlock();
     };
-  }, [ignoreReminder, pauseForMinutes, recordStand, startStandingWork, submitExcuse, enterIdle, exitIdle, settings.lockScreenPauseEnabled]);
+  }, [ignoreReminder, pauseForMinutes, recordStand, startStanding, startStandingWork, submitExcuse, enterIdle, exitIdle, settings.lockScreenPauseEnabled]);
 
   useEffect(() => {
     const lang = settings.language;

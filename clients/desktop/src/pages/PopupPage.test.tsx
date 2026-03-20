@@ -77,6 +77,8 @@ describe('PopupPage exercise guidance', () => {
         standSeconds: 120,
       },
     }));
+
+    (window as any).electronAPI = undefined;
   });
 
   it('requests AI exercise guidance only once for a standing session', async () => {
@@ -206,5 +208,53 @@ describe('PopupPage exercise guidance', () => {
     });
 
     expect(screen.getByTestId('popup-stand-ring')).toBeInTheDocument();
+  });
+
+  it('does not render a continue-standing button during the standing phase', async () => {
+    useAppStore.setState((state) => ({
+      ...state,
+      settings: {
+        ...state.settings,
+        aiEnabled: false,
+        exerciseGuidanceEnabled: false,
+        standSeconds: 60,
+      },
+    }));
+
+    await act(async () => {
+      render(<PopupPage />);
+    });
+
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('btn-admit-mistake'));
+    });
+
+    expect(screen.queryByTestId('btn-stand-continue')).not.toBeInTheDocument();
+  });
+
+  it('notifies the main app when standing starts in Electron mode', async () => {
+    const send = vi.fn();
+    (window as any).electronAPI = { send };
+
+    useAppStore.setState((state) => ({
+      ...state,
+      settings: {
+        ...state.settings,
+        aiEnabled: false,
+        exerciseGuidanceEnabled: false,
+        standSeconds: 60,
+      },
+    }));
+
+    await act(async () => {
+      render(<PopupPage />);
+    });
+
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('btn-admit-mistake'));
+    });
+
+    expect(send).toHaveBeenCalledTimes(1);
+    expect(send).toHaveBeenCalledWith('checkin:stand_start', expect.objectContaining({ at: expect.any(Number) }));
   });
 });
