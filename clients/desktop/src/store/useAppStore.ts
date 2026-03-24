@@ -88,6 +88,7 @@ export interface AppState {
   lastActiveAt: number | null;
   pauseUntil: number | null;
   pauseReason: 'manual' | 'rest' | 'dnd' | 'idle' | 'lock' | null;
+  pausedReminderRemainingMs: number | null;
   restSuppressedUntil: number | null;
   nextReminderAt: number;
   settings: Settings;
@@ -364,6 +365,7 @@ export const useAppStore = create<AppState>()(
       lastActiveAt: Date.now(),
       pauseUntil: null,
       pauseReason: null,
+      pausedReminderRemainingMs: null,
       restSuppressedUntil: null,
       nextReminderAt: Date.now() + 60 * 60 * 1000,
       settings: {
@@ -1292,6 +1294,7 @@ export const useAppStore = create<AppState>()(
           standWorkStartAt: null,
           pauseUntil: now + clampedMinutes * 60 * 1000,
           pauseReason: 'manual',
+          pausedReminderRemainingMs: null,
           day: newDay,
           logs: prependLog(
             { id: randomId(), at: now, type: 'pause', payload: { minutes: clampedMinutes, reason: 'manual' } },
@@ -1328,6 +1331,7 @@ export const useAppStore = create<AppState>()(
           standWorkStartAt: null,
           pauseUntil: null,
           pauseReason: reason,
+          pausedReminderRemainingMs: clampMs(state.nextReminderAt - now),
           day: newDay,
           logs: prependLog({ id: randomId(), at: now, type: 'pause', payload: { reason } }, state.logs),
         });
@@ -1339,13 +1343,16 @@ export const useAppStore = create<AppState>()(
         if (state.mode !== 'paused') return;
         if (state.pauseReason !== 'idle' && state.pauseReason !== 'lock') return;
 
+        const remainingMs =
+          typeof state.pausedReminderRemainingMs === 'number' ? clampMs(state.pausedReminderRemainingMs) : null;
         const intervalMs = state.settings.intervalMinutes * 60 * 1000;
         set({
           mode: 'sitting',
           sitStartAt: now,
           pauseUntil: null,
           pauseReason: null,
-          nextReminderAt: now + intervalMs,
+          pausedReminderRemainingMs: null,
+          nextReminderAt: now + (remainingMs ?? intervalMs),
           logs: prependLog({ id: randomId(), at: now, type: 'resume', payload: { reason: 'idle_end' } }, state.logs),
         });
       },
@@ -1361,6 +1368,7 @@ export const useAppStore = create<AppState>()(
           sitStartAt: now,
           pauseUntil: null,
           pauseReason: null,
+          pausedReminderRemainingMs: null,
           nextReminderAt: now + intervalMs,
           logs: prependLog({ id: randomId(), at: now, type: 'resume' }, state.logs),
         });
@@ -1489,6 +1497,10 @@ export const useAppStore = create<AppState>()(
           },
           dayHistory: history,
           pauseReason: s?.pauseReason ?? null,
+          pausedReminderRemainingMs:
+            typeof s?.pausedReminderRemainingMs === 'number' && Number.isFinite(s.pausedReminderRemainingMs)
+              ? Math.max(0, s.pausedReminderRemainingMs)
+              : null,
           restSuppressedUntil: s?.restSuppressedUntil ?? null,
           standWorkStartAt: s?.standWorkStartAt ?? null,
           aiLastNudge: legacyNudge,
@@ -1527,6 +1539,7 @@ export const useAppStore = create<AppState>()(
         lastActiveAt: state.lastActiveAt,
         pauseUntil: state.pauseUntil,
         pauseReason: state.pauseReason,
+        pausedReminderRemainingMs: state.pausedReminderRemainingMs,
         restSuppressedUntil: state.restSuppressedUntil,
         nextReminderAt: state.nextReminderAt,
         settings: state.settings,

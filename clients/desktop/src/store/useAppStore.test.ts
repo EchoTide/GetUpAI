@@ -365,6 +365,38 @@ describe('session timestamp guards', () => {
     expect(next.standStartAt).toBe(startAt);
     expect(next.pauseReason).toBeNull();
   });
+
+  it('exitIdle preserves the remaining reminder time instead of resetting the full interval', () => {
+    const baseNow = new Date('2026-03-06T14:00:00+08:00').getTime();
+    const idleAt = baseNow + 5 * 60 * 1000;
+    const resumeAt = idleAt + 5 * 60 * 1000;
+    const originalReminderAt = baseNow + 20 * 60 * 1000;
+    const state = useAppStore.getState();
+
+    useAppStore.setState({
+      mode: 'sitting',
+      sitStartAt: baseNow - 40 * 60 * 1000,
+      standStartAt: null,
+      standWorkStartAt: null,
+      pauseUntil: null,
+      pauseReason: null,
+      nextReminderAt: originalReminderAt,
+      lastActiveAt: idleAt,
+      day: {
+        ...state.day,
+        dayKey: '2026-03-06',
+      },
+    });
+
+    useAppStore.getState().enterIdle(idleAt, 'idle');
+    useAppStore.getState().exitIdle(resumeAt);
+
+    const next = useAppStore.getState();
+    expect(next.mode).toBe('sitting');
+    expect(next.pauseReason).toBeNull();
+    expect(next.sitStartAt).toBe(resumeAt);
+    expect(next.nextReminderAt).toBe(resumeAt + 15 * 60 * 1000);
+  });
 });
 
 describe('app state storage', () => {
